@@ -1,1 +1,51 @@
 # ECE-2112-PA-2
+
+Jhan Gabriel V. Caragay | 2ECE-D
+
+# A. REPRODUCIBLE NORMALIZATION PROBLEM
+
+### **OBJECTIVE**
+
+
+### **DISCUSSION**
+
+
+### **OVERALL STRUCTURE**
+
+
+
+### **SAMPLE OUTPUT**
+
+# B. CUBES DIVISIBLE BY 4 PROBLEM
+
+### **OBJECTIVE**
+
+
+### **DISCUSSION**
+
+
+### **OVERALL STRUCTURE**
+
+
+
+### **SAMPLE OUTPUT**
+
+# C. ABOVE-MEAN SQUARES PROBLEM
+
+### **OBJECTIVE**
+
+
+### **DISCUSSION**
+
+
+### **OVERALL STRUCTURE**
+
+
+
+### **SAMPLE OUTPUT**
+
+## **HISTORY**
+**August 28, 2026** -
+
+**August 27, 2026** - Started the Readme file.
+ 
