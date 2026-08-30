@@ -168,7 +168,6 @@ np.save("X_normalized.npy", X_normalized)
 ```
 
 
-
 # B. CUBES DIVISIBLE BY 4 PROBLEM
 
 ### **OBJECTIVE**
