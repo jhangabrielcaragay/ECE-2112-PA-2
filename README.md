@@ -172,31 +172,184 @@ np.save("X_normalized.npy", X_normalized)
 
 ### **OBJECTIVE**
 
+The second problem requires creating a **10 × 10 NumPy array** containing the cubes of the first **100 positive** integers. A Boolean condition is then used to select all cubed values divisible by ```4```, which are stored in ```div_by_4``` and saved as a ```.npy``` file.
 
 ### **DISCUSSION**
 
+We first create an array containing the first **100 positive integers**, reshape it into a **10 × 10 array**, and cube each value using the following code:
+
+```C = np.arange(1,101).reshape(10,10) ** 3```
+
+```np.arange(1,101)```
+
+> This was used to generate the integers from 1 up to 100.
+
+```.reshape(10,10)```
+
+> This was used to reshape the values into a 10 × 10 array.
+
+```** 3```
+
+> This was used to **cube** each value in the array.
+
+In order to make the array fit inside the 10x10 requirement, it used the code:
+
+```
+np.set_printoptions(linewidth=300)
+```
+> This was used to expand the print width so that the ```10 × 10 array``` can be displayed more neatly without unnecessary line breaks. 
+
+Printing the value for ```C``` will yield the result:
+
+```
+[[      1       8      27      64     125     216     343     512     729    1000]
+ [   1331    1728    2197    2744    3375    4096    4913    5832    6859    8000]
+ [   9261   10648   12167   13824   15625   17576   19683   21952   24389   27000]
+ [  29791   32768   35937   39304   42875   46656   50653   54872   59319   64000]
+ [  68921   74088   79507   85184   91125   97336  103823  110592  117649  125000]
+ [ 132651  140608  148877  157464  166375  175616  185193  195112  205379  216000]
+ [ 226981  238328  250047  262144  274625  287496  300763  314432  328509  343000]
+ [ 357911  373248  389017  405224  421875  438976  456533  474552  493039  512000]
+ [ 531441  551368  571787  592704  614125  636056  658503  681472  704969  729000]
+ [ 753571  778688  804357  830584  857375  884736  912673  941192  970299 1000000]]
+
+```
+Next, in order to get the size of the array's dimension, it used the code:
+
+```
+C.shape
+```
+Which yields the result:
+```
+(10, 10)
+```
+Next, we let ```div_by_4``` use a Boolean condition on ```C``` to select every cubed value that is divisible by ```4```. The selected values are kept in NumPy's normal row-major order. 
+```
+div_by_4 = C[C % 4 == 0]
+```
+```
+[C % 4 == 0]
+```
+> ```C % 4``` gets the remainder when each value is divided by ```4```, while ```== 0``` checks if the remainder is **zero**. This selects only the values in ```C``` that are divisible by ```4```. 
+
+```
+C
+```
+> ```C``` was placed before the Boolean condition to apply the condition to every element in the array and select the values that satisfy it.
+
+Entering ```div_by_4``` will yield out:
+
+```
+array([      8,      64,     216,     512,    1000,    1728,    2744,    4096,    5832,    8000,   10648,   13824,   17576,   21952,   27000,   32768,   39304,   46656,   54872,   64000,   74088,   85184,   97336,  110592,  125000,  140608,  157464,  175616,  195112,  216000,  238328,  262144,
+        287496,  314432,  343000,  373248,  405224,  438976,  474552,  512000,  551368,  592704,  636056,  681472,  729000,  778688,  830584,  884736,  941192, 1000000])
+```
+> This is in line with the programming assignment's requirement that the first number is ```8``` and the last is `1,000,000`.
+
+Next, we will check for the number of elements inside the array using the code:
+```
+div_by_4.size
+```
+This yields out:
+```
+50
+```
+> This is in line with the programming assignment's requirement that the it should have a result of `50` solutions.
+
+Lastly, we save the array as ```div_by_4.npy``` using the code:
+```
+np.save("div_by_4", div_by_4)
+```
+> It is saved under the filename `div_by_4.npy`.
+
 
 ### **OVERALL STRUCTURE**
+```
+C = np.arange(1,101).reshape(10,10) ** 3
+np.set_printoptions(linewidth=300)
+print(C)
 
+[[      1       8      27      64     125     216     343     512     729    1000]
+ [   1331    1728    2197    2744    3375    4096    4913    5832    6859    8000]
+ [   9261   10648   12167   13824   15625   17576   19683   21952   24389   27000]
+ [  29791   32768   35937   39304   42875   46656   50653   54872   59319   64000]
+ [  68921   74088   79507   85184   91125   97336  103823  110592  117649  125000]
+ [ 132651  140608  148877  157464  166375  175616  185193  195112  205379  216000]
+ [ 226981  238328  250047  262144  274625  287496  300763  314432  328509  343000]
+ [ 357911  373248  389017  405224  421875  438976  456533  474552  493039  512000]
+ [ 531441  551368  571787  592704  614125  636056  658503  681472  704969  729000]
+ [ 753571  778688  804357  830584  857375  884736  912673  941192  970299 1000000]]
 
+```
+```
+C.shape
 
-### **SAMPLE OUTPUT**
+(10, 10)
+```
+```
+div_by_4 = C[C % 4 == 0]
+div_by_4
+
+array([      8,      64,     216,     512,    1000,    1728,    2744,    4096,    5832,    8000,   10648,   13824,   17576,   21952,   27000,   32768,   39304,   46656,   54872,   64000,   74088,   85184,   97336,  110592,  125000,  140608,  157464,  175616,  195112,  216000,  238328,  262144,
+        287496,  314432,  343000,  373248,  405224,  438976,  474552,  512000,  551368,  592704,  636056,  681472,  729000,  778688,  830584,  884736,  941192, 1000000])
+```
+```
+div_by_4.size
+
+50
+```
+```
+np.save("div_by_4", div_by_4)
+```
 
 # C. ABOVE-MEAN SQUARES PROBLEM
 
 ### **OBJECTIVE**
 
+The third problem requires creating a **6 × 6 NumPy array** containing the squares of the first **36 positive** integers. The mean of the array is then calculated and used as a Boolean condition to select only the values strictly greater than the mean. These values are stored in ```above_mean``` and saved as a ```.npy``` file.
 
 ### **DISCUSSION**
 
+We first started by creating a 6 x 6 ndarray named S that lists the first 36 positive integers using the code:
 
 ### **OVERALL STRUCTURE**
+```
+S = np.arange(1,37).reshape(6,6) ** 2
+S
 
+array([[   1,    4,    9,   16,   25,   36],
+       [  49,   64,   81,  100,  121,  144],
+       [ 169,  196,  225,  256,  289,  324],
+       [ 361,  400,  441,  484,  529,  576],
+       [ 625,  676,  729,  784,  841,  900],
+       [ 961, 1024, 1089, 1156, 1225, 1296]])
+```
+```
+S_mean = (S.mean())
+print(S_mean)
 
+450.1666666666667
+```
+```
+above_mean = S[S > S_mean]
+print(above_mean)
 
-### **SAMPLE OUTPUT**
+[ 484  529  576  625  676  729  784  841  900  961 1024 1089 1156 1225 1296]
+```
+```
+above_mean.size
+
+15
+```
+
+```
+np.save("above_mean.npy",above_mean)
+```
+
 
 ## **HISTORY**
+
+**August 31, 2026** - Finalized the README.md file.
+
 **August 30, 2026** - Submitted the required .ipynb and .npy files.
 
 **August 27, 2026** - Started the Readme file.
