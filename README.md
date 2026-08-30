@@ -309,7 +309,72 @@ The third problem requires creating a **6 × 6 NumPy array** containing the squa
 
 ### **DISCUSSION**
 
-We first started by creating a 6 x 6 ndarray named S that lists the first 36 positive integers using the code:
+We first started by creating a ```6 x 6 ndarray``` named ```S``` that lists the first `36 positive integers` using the code:
+
+```
+S = np.arange(1,37).reshape(6,6) ** 2
+```
+```
+np.arange(1,37)
+```
+> This is used to generate the integers from `1` up to `36`.
+
+```
+.reshape(6,6)
+```
+> This is used to reshape the values into a `6 × 6 array`.
+```
+** 2
+```
+> This is used to `square` each value in the array.
+
+Next, we need to compute the `mean` of all the values in `S` and assign the result to `S_mean`.
+
+```
+S_mean = (S.mean())
+```
+In order to see the result, we print it using the code:
+```
+print(S_mean)
+```
+This code yields the result:
+```
+450.1666666666667
+```
+
+Next, we let `above_mean` have the values in `S` that are strictly greater than `S_mean` using the code:
+```
+above_mean = S[S > S_mean]
+```
+> The condition `S > S_mean` checks which values in `S` are greater than the calculated mean and selects only those values.
+
+In order to see the results, we print them out using the code:
+```
+print(above_mean)
+```
+Which yields the result:
+```
+[ 484  529  576  625  676  729  784  841  900  961 1024 1089 1156 1225 1296]
+```
+> This is in line with the programming assignment's requirement that the first is `484` and the last is `1296`. 
+
+
+Next, we check for the number of elements of the `mean` using the code:
+```
+above_mean.size
+```
+
+This yields:
+```
+15
+```
+
+Lastly, we save the array as ```above_mean.npy``` using the code:
+```
+np.save("above_mean.npy",above_mean)
+```
+> It is saved under the filename `above_mean.npy`.
+
 
 ### **OVERALL STRUCTURE**
 ```
