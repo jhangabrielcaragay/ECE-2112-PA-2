@@ -105,7 +105,7 @@ print(normalized_std)
 ### **SAMPLE OUTPUT**
 
 ## **HISTORY**
-**August 28, 2026** -
+**August 30, 2026** - Submitted the required .ipynb and .npy files.
 
 **August 27, 2026** - Started the Readme file.
  
