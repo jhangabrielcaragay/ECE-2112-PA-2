@@ -66,7 +66,7 @@ This will then yield:
 ```
 
 We now combine our gathered data to solve for the ```X_normalized``` using the following code:
-```python
+```
 X_normalized = (X-M)/S
 ```
 > Where ```X``` represents the 5 × 5 random integer ndarray, ```M``` represents the **Mean**, and ```S``` represents the **Standard Deviation**.
